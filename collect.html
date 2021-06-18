@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collect Point</title>
+    <link rel="stylesheet" href="navigation.css">
+    <link rel="stylesheet" href="style2.css">
+    <script>
+        function disable_button(){
+            var age = document.getElementById("txtage").value
+            var btnSubmit = document.getElementById("btnSubmit")
+            if (age > 24){
+                btnSubmit.disabled = false
+            }
+            else{
+                btnSubmit.disabled = true
+            }
+        }
+
+        function display(){
+            var name = document.getElementById("txtName").value
+            var age = document.getElementById("txtage").value
+            var today = new Date()
+            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()
+            alert("Thanks Your Check-In Our Web Site!!\n=====================\nName : "+name+"\nAge : "+age+"\nCheck-In Date : "+date)
+        }
+    </script>
+</head>
+<body background="img/backgroundOther.jpg" onload="disable_button()">
+    <ul>
+        <li><a href="intro.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="people.html">Staff</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a class="active" href="collect.html">Collect</a></li>
+    </ul>
+    <table align="center" style="width: 40%;">
+        <tr>
+            <td><img src="img/logo.png" style="width: 100%;"></td>
+        </tr>
+    </table>
+    <table align="center" style="width: 40%; background-color: rgba(0, 0, 0, 0.493); margin-top: 20px;">
+        <tr align="center">
+            <td align="right"><h2 style="color: azure; font-family: Arial, Helvetica, sans-serif;">Name : </h2></td>
+            <td><input id="txtName" type="text" style="font-size: medium;"></td>
+        </tr>
+        <tr align="center">
+            <td align="right"><h2 style="color: azure; font-family: Arial, Helvetica, sans-serif;">Age : </h2></td>
+            <td><input id="txtage" type="number" style="font-size: medium;" oninput="disable_button()"></td>
+        </tr>
+        <tr align="center">
+            <td colspan="2"><input onclick="display()" id="btnSubmit" type="submit" value="Submit" style="font-size: medium; font-family: cursive;"></td>
+        </tr>
+    </table>
+</body>
+</html>
